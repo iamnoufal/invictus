@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #063a50;
+  color: #ffffff;
+  font-family: Helvetica;
+}
+
+#top {
+  position: fixed;
+  width: 100%;
+  display: flex;
+}
+
+#top-name {
+  text-align: left;
+  font-family: "UnifrakturMaguntia",cursive;
+  width: 30%;
+  font-size: 4vw;
+  padding: 2vw;
+}
+
+#top-nav {
+  width: 70%;
+  display: flex;
+  padding: 3vw 0;
+}
+
+#top-nav > div {
+  width: 20%;
+  text-align: center;
+  font-size: 1.5vw
+}
+
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: none;
+  background-color: #042e40;
+  height: 4vh;
+  padding: 2vh 0;
+}
+
+#bottom-nav > i {
+  width: 20%;
+  text-align: center;
+  font-size: 7vw
+}
+
+.active {
+  color: #41D5CC;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
+  #top-name {font-size:10vw;width:70%;padding:7vw}
+  #top-nav {width: 30%}
+  #top-nav > div {display: none;font-size:4vw;width:100%;padding:4vw 2vw}
+  #bottom-nav {display: flex;}
+  .active {text-decoration: none;}
+}

@@ -1,0 +1,69 @@
+
+  body {
+    font-family: Helvetica;
+    background-image: url("https://rahman24.github.io/invictus/bg-desk.png");
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 5vh;
+    color: white;
+    background-size: 100vw 100vh;
+    overflow: hidden;
+  }
+  .title {
+    font-family: "UnifrakturMaguntia",cursive;
+    position: fixed;
+    line-height: 70vh;
+    font-size: 15vh;
+    width: 100vw;
+    text-shadow: 5px 10px rgba(0,0,0), 5px 10px 4px rgba(0,0,0);
+  }
+  .text {
+    width: 100vw;
+    position: fixed;
+    text-shadow: 1px 1px 5px black, 1px 4px 5px black, 1px 4px 5px black;
+  }
+  .open {bottom:35vh}
+  #countdown {
+    position: fixed;
+    display: flex;
+    text-align: center;
+    bottom: 16vh;
+    justify-content: center;
+    width: 100vw;
+    text-shadow: 2px 2px rgba(0,0,0);
+  }
+  #countdown > div {
+    display: flex;
+    margin: 1vw 3vw;
+    flex-flow: column;
+  }
+  .ti {text-shadow: 2px 2px black,3px 3px 3px black}
+  .le {font-size: 3vh}
+  .later {bottom:8vh;font-size:4vh}
+  img {
+    position: fixed;
+    bottom: 2vh;
+    width: 20vh;
+  }
+  .left-pic-1 {left:2vh;bottom:15vh;margin:1vw;width:10vh;cursor:pointer}
+  .left-pic-2 {left:2vh;margin:1vw;width:10vh}
+  .right-pic {
+    right:4vh;
+    bottom:4vh;
+    box-shadow: -4px 1px 25px 2px rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.4);
+  }
+  @media screen and (max-width:1000px) {
+    body {font-size:4vh;color:white;background-image:url("https://rahman24.github.io/invictus/bg-mob.png")}
+    .title {font-size:12vh;line-height:50vh;text-shadow:10px 15px rgba(0,0,0,0.4), 12px 19px 4px rgba(0,0,0)}
+    .open {bottom:45vh}
+    #countdown {bottom:35vh}
+    .text {text-shadow: 3px 3px 3px black, 4px 4px 4px black, 5px 5px 5px black}
+    .later {bottom:28vh;font-size:3vh}
+    .le {font-size:2vh}
+    img {width:15vh}
+    .left-pic-1,.left-pic-2 {width:8vh}
+    .ti {text-shadow: 8px 8px black,10px 10px 3px black}
+    .right-pic {width:18vh;bottom:3vh;right:3vh}
+  }

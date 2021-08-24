@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>Invictus</title>
+<script src="/__/firebase/8.9.1/firebase-app.js"></script>
+<script src="/__/firebase/8.9.1/firebase-analytics.js"></script>
+<script src="/__/firebase/8.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/8.9.1/firebase-messaging.js"></script>
+<script src="/__/firebase/8.9.1/firebase-firestore.js"></script>
+<script src="/__/firebase/init.js"></script>
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="title">Invictus</div>
+<div class="text open">Gate opens in</div>
+<div id="countdown">
+  <div id="days">
+    <div id="d" class="ti">00</div>
+    <div class="le">Days</div>
+  </div>
+  <div style="margin:1vw 0">:</div>
+  <div id="hours">
+    <div id="h" class="ti">00</div>
+    <div class="le">Hours</div>
+  </div>
+  <div style="margin:1vw 0">:</div>
+  <div id="minutes">
+    <div id="m" class="ti">00</div>
+    <div class="le">Minutes</div>
+  </div>
+  <div style="margin:1vw 0">:</div>
+  <div id="seconds">
+    <div id="s" class="ti">00</div>
+    <div class="le">Seconds</div>
+  </div>
+</div>
+<div class="text later">Check back later</div>
+<img class="left-pic-1" style="display:none" src="https://rahman24.github.io/invictus/notification.png" onclick="notify()" />
+<a href="https://www.instagram.com/invictus_iitm" target="_blank"><img class="left-pic-2" src="https://rahman24.github.io/invictus/insta-logo.png" /></a>
+<img class="right-pic" src="https://rahman24.github.io/invictus/wnk-logo.png" />
+<script src="timer.js"></script>
+<script src="messaging.js"></script>
+</body>
+
+</html>
