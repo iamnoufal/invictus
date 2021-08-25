@@ -25,7 +25,7 @@ const LINKS = [
 
 const NavigationDefault = () => {
   return (
-    <nav class="navbar sticky-top navbar-expand-lg">
+    <nav class="navbar sticky-top navbar-expand-lg bg-color-darkgreen">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           Invictus
