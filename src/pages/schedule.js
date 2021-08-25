@@ -1,11 +1,10 @@
-import NavigationDefault from "components/nav/Default";
+import Layout from "components/Layout";
 
 const SchedulePage = () => {
   return (
-    <div>
-      <NavigationDefault />
-      This is the events schedule page
-    </div>
+    <Layout>
+      <div className="event-schedule-page">This is the events schedule page</div>
+    </Layout>
   );
 };
 
