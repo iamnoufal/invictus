@@ -1,47 +1,14 @@
-import EventCard from "components/event/Card";
-import NavigationDefault from "components/nav/Default";
+import EventsList from "components/event/List";
 
-const DUMMY_EVENTS = [
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 1",
-    category: "competitive"
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 2",
-    category: "competitive"
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 3",
-    category: "competitive"
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 4",
-    category: "competitive"
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 5",
-    category: "competitive"
-  }
-]
+import Layout from "components/Layout";
 
 const EventsPage = () => {
   return (
-    <div className="">
-      <NavigationDefault />
-      <div className="container">
-        {DUMMY_EVENTS.map((eventObj) => <EventCard key={eventObj.desc} {...eventObj} /> )}
+    <Layout>
+      <div className="events-list-page container px-5 py-5">
+        <EventsList />
       </div>
-    </div>
+    </Layout>
   );
 };
 
