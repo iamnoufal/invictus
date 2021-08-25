@@ -1,11 +1,10 @@
-import NavigationDefault from "components/nav/Default";
+import Layout from "components/Layout";
 
 const HomePage = () => {
   return (
-    <div className="">
-      <NavigationDefault />
-      <div>This is the home page</div>
-    </div>
+    <Layout>
+      <div className="home-page container"> This is the home page</div>
+    </Layout>
   );
 };
 

@@ -1,0 +1,23 @@
+.event-card {
+  /* width: 30rem; */
+  height: 30rem;
+  box-shadow: inset 0px 3px 20px #3cccc6, 0px 3px 30px #000000f4;
+  border: 3px solid #3cccc5;
+  border-radius: 100px;
+  opacity: 1;
+  background-color: #063A50;
+}
+
+.event-card .event-img {
+  width: 100%;
+}
+
+.event-card .card-body {
+  color: #3CCCC4;
+}
+
+.event-card .image-block {
+  align-items: center;
+  vertical-align: middle;
+  position: relative;
+}

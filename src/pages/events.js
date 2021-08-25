@@ -1,11 +1,14 @@
-import NavigationDefault from "components/nav/Default";
+import EventsList from "components/event/List";
+
+import Layout from "components/Layout";
 
 const EventsPage = () => {
   return (
-    <div className="">
-      <NavigationDefault />
-      This is the events page
-    </div>
+    <Layout>
+      <div className="events-list-page container px-5 py-5">
+        <EventsList />
+      </div>
+    </Layout>
   );
 };
 
