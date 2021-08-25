@@ -1,8 +1,31 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const LINKS = [
+  {
+    to: "/",
+    label: "Home",
+  },
+  {
+    to: "/schedule",
+    label: "Event Schedule",
+  },
+  {
+    to: "/events",
+    label: "Events List",
+  },
+  {
+    to: "/pass",
+    label: "Event Pass",
+  },
+  {
+    to: "/team",
+    label: "Our Team",
+  },
+];
 
 const NavigationDefault = () => {
   return (
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           Invictus
@@ -19,32 +42,20 @@ const NavigationDefault = () => {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li className="nav-item">
-              <Link to="/" activeClassName="active" className="nav-link text-uppercase">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/schedule" activeClassName="active" className="nav-link text-uppercase">
-                Event Schedule
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/events" activeClassName="active" className="nav-link text-uppercase">
-                Events List
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/pass" activeClassName="active" className="nav-link text-uppercase">
-                Event Pass
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/team" activeClassName="active" className="nav-link text-uppercase">
-                Our team
-              </Link>
-            </li>
+          <ul class="navbar-nav py-2">
+            {LINKS.map(({ to, label }) => (
+              <li className="nav-item" key={to}>
+                <NavLink
+                  to={to}
+                  exact
+                  activeClassName="active text-color-green text-decoration-underline"
+                  className="nav-link text-uppercase text-white"
+                  style={{ "letterSpacing": "3.3px", "textUnderlineOffset": "3px"}}
+                >
+                  {label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

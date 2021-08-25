@@ -1,7 +1,7 @@
 .text-color-green {
-  color: #3CCCC4;
+  color: #3CCCC4 !important;
 }
 
 .bg-color-darkgreen {
-  background-color: #063A50;
+  background-color: #063A50 !important;
 }
