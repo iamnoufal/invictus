@@ -5,3 +5,9 @@
 .bg-color-darkgreen {
   background-color: #063A50 !important;
 }
+
+.heading {
+  /* font: normal normal normal 60px/79px Roboto; */
+  letter-spacing: 6px;
+  color: #ffffff;
+}
