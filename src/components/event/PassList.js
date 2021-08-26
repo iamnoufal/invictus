@@ -25,7 +25,7 @@ const EventPassList = () => {
   return (
     <div className="event-pass-list d-flex m-5">
       {DUMMY_PASSES.map((passObj) => (
-        <EventPass {...passObj} />
+        <EventPass {...passObj} key={passObj.name} />
       ))}
     </div>
   );
