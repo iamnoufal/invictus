@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import "./Default.css";
+
 const LINKS = [
   {
     to: "/",
@@ -25,11 +27,11 @@ const LINKS = [
 
 const NavigationDefault = () => {
   return (
-    <nav className="navbar sticky-top navbar-expand-lg bg-color-darkgreen">
+    <nav className="navbar sticky-top navbar-expand-lg bg-color-darkgreen px-4">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <span className="navbar-brand" style={{ fontFamily: "UnifrakturMaguntia" }}>
           Invictus
-        </a>
+        </span>
         <button
           className="navbar-toggler"
           type="button"
@@ -42,9 +44,9 @@ const NavigationDefault = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav py-2">
+          <ul className="navbar-nav py-2 px-5">
             {LINKS.map(({ to, label }) => (
-              <li className="nav-item" key={to}>
+              <li className="nav-item mx-3" key={to}>
                 <NavLink
                   to={to}
                   exact

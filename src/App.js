@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value={{ session, setSession }}>
-        <BrowserRouter>
+        <BrowserRouter basename="/home">
           <Switch>
             <Route exact path="/events" component={EventsPage} />
             <Route exact path="/schedule" component={EventSchedulePage} />
