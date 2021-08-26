@@ -60,6 +60,7 @@ const EventsList = () => {
   };
 
   useEffect(() => {
+    /*eslint no-undef: "off"*/
     const db = firebase.firestore();
     const events = []
     db.collection("events").get().then((querySnapshot)=>{
