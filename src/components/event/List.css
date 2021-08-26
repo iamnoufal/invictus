@@ -1,5 +1,26 @@
 .heading {
-  font: normal normal normal 60px/79px Roboto;
+  /* font: normal normal normal 60px/79px Roboto; */
   letter-spacing: 6px;
   color: #ffffff;
+}
+
+.events-list .event-category-group {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  width: 90%;
+}
+
+.events-list .event-category-group label {
+  font-size: 2rem;
+}
+
+.events-list .event-category-group .btn-outline-green {
+  color: #3CC9C3;
+  border-color: #3CC9C3;
+}
+
+.events-list .event-category-group input[type="radio"]:checked + label {
+  background-color: #3CC9C3;
+  color: black
 }
