@@ -1,41 +1,10 @@
 import { useState, useEffect } from "react";
 
+import { getEvents } from "apis/firebase";
+
 import EventCard from "./Card";
 
 import "./List.css";
-
-const DUMMY_EVENTS = [
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 1",
-    category: "competitive",
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 2",
-    category: "fun",
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 3",
-    category: "fun",
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 4",
-    category: "educational",
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 5",
-    category: "competitive",
-  },
-];
 
 const EVENT_CATEGORIES = Object.freeze({
   fun: {
@@ -60,13 +29,16 @@ const EventsList = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      const eventsObj = DUMMY_EVENTS.reduce((acc, obj) => {
-        acc[obj.category] = [].concat(acc[obj.category] || [], obj);
+    /*eslint no-undef: "off"*/
+    getEvents().then((response = []) => {
+      const eventsObj = response.reduce((acc, obj) => {
+        acc[obj.category] = []
+          .concat(acc[obj.category] || [], obj)
+          .sort((a, b) => a.start.seconds < b.start.seconds);
         return acc;
       }, {});
       setEventsByCategory(eventsObj);
-    }, 500);
+    });
   }, []);
 
   return (
