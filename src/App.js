@@ -13,6 +13,7 @@ import EventPassPage from "pages/pass";
 import { AppContext } from "contexts/app";
 
 import "./App.css";
+import Authenticate from "components/Auth";
 
 function App() {
   const [session, setSession] = useState({});
@@ -40,7 +41,15 @@ function App() {
             <Route exact path="/events" component={EventsPage} />
             <Route exact path="/schedule" component={EventSchedulePage} />
             <Route exact path="/team" component={TeamPage} />
-            <Route exact path="/pass" component={EventPassPage} />
+            <Route
+              exact
+              path="/pass"
+              render={(routeProps) => (
+                <Authenticate>
+                  <EventPassPage {...routeProps} />
+                </Authenticate>
+              )}
+            />
             <Route exact path="/" component={HomePage} />
           </Switch>
         </BrowserRouter>

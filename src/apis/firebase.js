@@ -1,4 +1,5 @@
-import { getFirestore, collection, getDocs } from "@firebase/firestore";
+import { getFirestore, collection, getDocs, getDoc, doc } from "@firebase/firestore";
+import { getAuth } from "@firebase/auth";
 
 export const getEvents = () => {
   const db = getFirestore();
@@ -13,7 +14,34 @@ export const getEvents = () => {
         desc: doc.data().desc,
       });
     });
-    console.log(events);
     return events;
   });
+};
+
+export const getProfileDetails = async () => {
+  let regEvents = [];
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const { displayName: userName, email, uid } = user;
+  const db = getFirestore();
+  const userDoc = await getDoc(doc(db, "users", email));
+  const { registered = [], group, house } = userDoc.data();
+  for (let i of registered) {
+    const eventDoc = await getDoc(doc(db, "events", i));
+    const { category, start, end, desc } = eventDoc.data();
+    regEvents.push({
+      name: i,
+      category,
+      start,
+      end,
+      desc,
+    });
+  }
+  return {
+    userName,
+    email,
+    group,
+    house,
+    eventPasses: regEvents,
+  };
 };

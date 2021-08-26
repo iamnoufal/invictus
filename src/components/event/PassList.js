@@ -2,31 +2,17 @@ import EventPass from "./Pass";
 
 import "./PassList.css";
 
-const DUMMY_PASSES = [
-  {
-    name: "Shark Tank",
-    status: "completed",
-  },
-  {
-    name: "Shark Tank",
-    status: "completed",
-  },
-  {
-    name: "Shark Tank",
-    status: "completed",
-  },
-  {
-    name: "Shark Tank",
-    status: "completed",
-  },
-];
-
-const EventPassList = () => {
+const EventPassList = ({ passes = [] }) => {
   return (
     <div className="event-pass-list d-flex m-5">
-      {DUMMY_PASSES.map((passObj) => (
+      {passes.map((passObj) => (
         <EventPass {...passObj} key={passObj.name} />
       ))}
+      {passes.length === 0 && (
+        <h4 className="my-5 mx-auto text-center text-uppercase text-white">
+          You have not registered to any events.
+        </h4>
+      )}
     </div>
   );
 };
