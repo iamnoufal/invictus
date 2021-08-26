@@ -1,5 +1,5 @@
 import EventCard from "./Card";
-
+import EVENTS from "./Events";
 const DUMMY_EVENTS = [
   {
     start: new Date(),
