@@ -3,3 +3,20 @@
   letter-spacing: 6px;
   color: #ffffff;
 }
+
+.btn-group {
+  border-radius: 30px;
+  border: 1px solid #3cc9c3;
+}
+
+.btn-group > .btn {
+  border: none;
+}
+
+.events-list .event-category-group label {
+  font-size: 1rem;
+}
+
+.events-list .event-category-group input[type="radio"]:checked + label {
+  border-radius: 30px
+}
