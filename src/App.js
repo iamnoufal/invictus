@@ -9,11 +9,13 @@ import EventSchedulePage from "pages/schedule";
 import EventsPage from "pages/events";
 import TeamPage from "pages/team";
 import EventPassPage from "pages/pass";
+import Authenticate from "components/Auth";
 
 import { AppContext } from "contexts/app";
 
+import { parseSessionData } from "helpers/auth";
+
 import "./App.css";
-import Authenticate from "components/Auth";
 
 function App() {
   const [session, setSession] = useState({});
@@ -24,12 +26,11 @@ function App() {
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
+      let data = {};
       if (user) {
-        const { uid, email, displayName, accessToken } = user;
-        setSession({ uid, email, displayName, accessToken });
-      } else {
-        setSession({});
+        data = parseSessionData(user);
       }
+      setSession(data);
     });
   }, []);
 
@@ -38,8 +39,24 @@ function App() {
       <AppContext.Provider value={{ session, setSession }}>
         <BrowserRouter basename="/home">
           <Switch>
-            <Route exact path="/events" component={EventsPage} />
-            <Route exact path="/schedule" component={EventSchedulePage} />
+            <Route
+              exact
+              path="/events"
+              render={(routeProps) => (
+                <Authenticate>
+                  <EventsPage {...routeProps} />
+                </Authenticate>
+              )}
+            />
+            <Route
+              exact
+              path="/schedule"
+              render={(routeProps) => (
+                <Authenticate>
+                  <EventSchedulePage {...routeProps} />
+                </Authenticate>
+              )}
+            />
             <Route exact path="/team" component={TeamPage} />
             <Route
               exact

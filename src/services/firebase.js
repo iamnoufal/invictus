@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
 export const initFirebase = () => {
   const firebaseApp = initializeApp({
@@ -14,10 +13,4 @@ export const initFirebase = () => {
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
   });
   const analytics = getAnalytics(firebaseApp);
-};
-
-export const signIn = () => {
-  const auth = getAuth();
-  const provider = new GoogleAuthProvider();
-  signInWithRedirect(auth, provider);
 };
