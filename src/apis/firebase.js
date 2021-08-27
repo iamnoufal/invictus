@@ -1,5 +1,5 @@
 import { getFirestore, collection, getDocs, getDoc, doc, onSnapshot } from "@firebase/firestore";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
 export const getEvents = () => {
   const db = getFirestore();
@@ -24,26 +24,32 @@ export const getProfileDetails = async () => {
   const user = auth.currentUser;
   const { displayName: userName, email } = user;
   const db = getFirestore();
-  const userDoc = await getDoc(doc(db, "users", email));
-  const { registered = [], group, house } = userDoc.data();
-  for (let i of registered) {
-    const eventDoc = await getDoc(doc(db, "events", i));
-    const { category, start, end, desc } = eventDoc.data();
-    regEvents.push({
-      name: i,
-      category,
-      start,
-      end,
-      desc,
-    });
+  try {
+    const userDoc = await getDoc(doc(db, "users", email));
+    const { registered = [], group, house } = userDoc.data();
+    for (let i of registered) {
+      const eventDoc = await getDoc(doc(db, "events", i));
+      const { category, start, end, desc } = eventDoc.data();
+      regEvents.push({
+        name: i,
+        category,
+        start,
+        end,
+        desc,
+      });
+    }
+    return {
+      userName,
+      email,
+      group,
+      house,
+      eventPasses: regEvents,
+    };
+  } catch (err) {
+    signOut(auth);
+    alert("Sign in using your student login email");
+    return {};
   }
-  return {
-    userName,
-    email,
-    group,
-    house,
-    eventPasses: regEvents,
-  };
 };
 
 export const signInFirebase = () => {
