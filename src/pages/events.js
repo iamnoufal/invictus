@@ -5,7 +5,7 @@ import Layout from "components/Layout";
 const EventsPage = () => {
   return (
     <Layout>
-      <div className="events-list-page container px-5 py-5">
+      <div className="events-list-page container px-0 py-5">
         <EventsList />
       </div>
     </Layout>

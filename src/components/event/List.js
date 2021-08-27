@@ -41,6 +41,7 @@ const EventsList = () => {
     });
   }, []);
 
+  const eventList = eventsByCategory[activeCategory] || [];
   return (
     <div className="events-list">
       <h1 className="text-center text-white mb-5 heading text-uppercase">Events List</h1>
@@ -59,7 +60,7 @@ const EventsList = () => {
           onChange={handleCategorySelection}
           checked={activeCategory === funCategory.name}
         />
-        <label className="btn btn-outline-green" htmlFor="btnradio1">
+        <label className="btn btn-outline-green text-uppercase fw-bold" htmlFor="btnradio1">
           Fun
         </label>
 
@@ -73,7 +74,7 @@ const EventsList = () => {
           onChange={handleCategorySelection}
           checked={activeCategory === compCategory.name}
         />
-        <label className="btn btn-outline-green " htmlFor="btnradio2">
+        <label className="btn btn-outline-green text-uppercase fw-bold" htmlFor="btnradio2">
           Competitive
         </label>
 
@@ -87,14 +88,19 @@ const EventsList = () => {
           onChange={handleCategorySelection}
           checked={activeCategory === eduCategory.name}
         />
-        <label className="btn btn-outline-green" htmlFor="btnradio3">
+        <label className="btn btn-outline-green text-uppercase fw-bold" htmlFor="btnradio3">
           Educational
         </label>
       </div>
-      <div className="m-auto justify-content-center">
-        {(eventsByCategory[activeCategory] || []).map((eventObj) => (
+      <div className="m-auto justify-content-center d-flex event-card-list">
+        {eventList.map((eventObj) => (
           <EventCard key={eventObj.desc} {...eventObj} />
         ))}
+        {eventList.length === 0 && (
+          <h4 className="text-center text-uppercase text-white m-auto">
+            There are no events in this cateoory yet
+          </h4>
+        )}
       </div>
     </div>
   );
