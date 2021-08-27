@@ -43,7 +43,10 @@ const EventsList = () => {
         setEventsByCategory(eventsObj);
         setLoadingEvents(false);
       })
-      .catch(() => setLoadingEvents(false));
+      .catch((err) => {
+        setLoadingEvents(false);
+        throw err;
+      });
   }, []);
 
   const eventList = eventsByCategory[activeCategory] || [];
