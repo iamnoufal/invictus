@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router";
 
 import Layout from "components/Layout";
 import AuthButton from "components/button/Auth";
@@ -9,6 +10,7 @@ import Loader from "components/Loader";
 const HomePage = () => {
   const [pageLoading, setPageLoading] = useState(true);
   const { session, setSession } = useContext(AppContext);
+  const history = useHistory();
 
   const handleAuthFailure = (response) => {
     const { errorCode, errorMessage } = response;
@@ -19,7 +21,10 @@ const HomePage = () => {
     if (!session.loading) {
       setPageLoading(false);
     }
-  }, [session]);
+    if (session.accessToken) {
+      history.push("/pass");
+    }
+  }, [session, history]);
 
   return (
     <Layout>
