@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value={{ session, setSession }}>
-        <BrowserRouter basename="/home">
+        <BrowserRouter>
           <Switch>
             <Route
               exact
