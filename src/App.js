@@ -34,15 +34,7 @@ function App() {
       <AppContext.Provider value={{ session, setSession }}>
         <BrowserRouter>
           <Switch>
-            <Route
-              exact
-              path="/events"
-              render={(routeProps) => (
-                <Authenticate>
-                  <EventsPage {...routeProps} />
-                </Authenticate>
-              )}
-            />
+            <Route exact path="/events" render={(routeProps) => <EventsPage {...routeProps} />} />
             <Route
               exact
               path="/schedule"
