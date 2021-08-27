@@ -1,8 +1,6 @@
-import { useLayoutEffect, useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-
-import { initFirebase } from "services/firebase";
 
 import HomePage from "pages/home";
 import EventSchedulePage from "pages/schedule";
@@ -19,11 +17,8 @@ import "./App.css";
 
 function App() {
   const [session, setSession] = useState({ loading: true });
-  useLayoutEffect(() => {
-    initFirebase();
-  }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       let data = {};

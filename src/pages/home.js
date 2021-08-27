@@ -17,14 +17,16 @@ const HomePage = () => {
     alert(`${errorCode}: ${errorMessage}`);
   };
 
+  const handleAuthSuccess = (response) => {
+    setSession(response);
+    setTimeout(() => history.push("/pass"), 0);
+  }
+
   useEffect(() => {
     if (!session.loading) {
       setPageLoading(false);
     }
-    if (session.accessToken) {
-      history.push("/pass");
-    }
-  }, [session, history]);
+  }, [session]);
 
   return (
     <Layout>
@@ -37,7 +39,7 @@ const HomePage = () => {
             </h3>
           ) : (
             <div className="m-auto text-center my-2">
-              <AuthButton onAuthSuccess={setSession} onAuthFailure={handleAuthFailure} />
+              <AuthButton onAuthSuccess={handleAuthSuccess} onAuthFailure={handleAuthFailure} />
             </div>
           )}
         </Loader>
