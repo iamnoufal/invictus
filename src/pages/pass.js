@@ -10,9 +10,18 @@ import { getProfileDetails } from "apis/firebase";
 const EventPassPage = () => {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    getProfileDetails().then(setProfile).then(setLoading);
+    getProfileDetails()
+      .then((response) => {
+        setProfile(response);
+      })
+      .then(() => {
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, []);
+
   return (
     <Layout>
       <div className="container event-pass-page">

@@ -22,7 +22,7 @@ export const getProfileDetails = async () => {
   let regEvents = [];
   const auth = getAuth();
   const user = auth.currentUser;
-  const { displayName: userName, email, uid } = user;
+  const { displayName: userName, email } = user;
   const db = getFirestore();
   const userDoc = await getDoc(doc(db, "users", email));
   const { registered = [], group, house } = userDoc.data();
