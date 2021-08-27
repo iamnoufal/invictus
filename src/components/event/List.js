@@ -5,6 +5,7 @@ import { getEvents } from "apis/firebase";
 import EventCard from "./Card";
 
 import "./List.css";
+import Loader from "components/Loader";
 
 const EVENT_CATEGORIES = Object.freeze({
   fun: {
@@ -21,6 +22,7 @@ const EVENT_CATEGORIES = Object.freeze({
 const { fun: funCategory, competitive: compCategory, educational: eduCategory } = EVENT_CATEGORIES;
 
 const EventsList = () => {
+  const [loadingEvents, setLoadingEvents] = useState(true);
   const [eventsByCategory, setEventsByCategory] = useState({});
   const [activeCategory, setActiveCategory] = useState(funCategory.name);
 
@@ -30,15 +32,18 @@ const EventsList = () => {
 
   useEffect(() => {
     /*eslint no-undef: "off"*/
-    getEvents().then((response = []) => {
-      const eventsObj = response.reduce((acc, obj) => {
-        acc[obj.category] = []
-          .concat(acc[obj.category] || [], obj)
-          .sort((a, b) => a.start.seconds < b.start.seconds);
-        return acc;
-      }, {});
-      setEventsByCategory(eventsObj);
-    });
+    getEvents()
+      .then((response = []) => {
+        const eventsObj = response.reduce((acc, obj) => {
+          acc[obj.category] = []
+            .concat(acc[obj.category] || [], obj)
+            .sort((a, b) => a?.start?.seconds < b?.start?.seconds);
+          return acc;
+        }, {});
+        setEventsByCategory(eventsObj);
+        setLoadingEvents(false);
+      })
+      .catch(() => setLoadingEvents(false));
   }, []);
 
   const eventList = eventsByCategory[activeCategory] || [];
@@ -93,14 +98,16 @@ const EventsList = () => {
         </label>
       </div>
       <div className="m-auto justify-content-center d-flex event-card-list">
-        {eventList.map((eventObj) => (
-          <EventCard key={eventObj.desc} {...eventObj} />
-        ))}
-        {eventList.length === 0 && (
-          <h4 className="text-center text-uppercase text-white m-auto">
-            There are no events in this cateoory yet
-          </h4>
-        )}
+        <Loader loading={loadingEvents}>
+          {eventList.map((eventObj) => (
+            <EventCard key={eventObj.desc} {...eventObj} />
+          ))}
+          {eventList.length === 0 && (
+            <h4 className="text-center text-uppercase text-white m-auto">
+              There are no events in this cateoory yet
+            </h4>
+          )}
+        </Loader>
       </div>
     </div>
   );
