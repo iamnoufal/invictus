@@ -14,7 +14,7 @@ const Footer = () => {
             <a href={contact_url}>Noufal Rahman</a>
           </p>
         </div>
-        <div className="col-3 text-end logo">
+        <div className="col-9 text-end logo">
           <img src={wnkLogo} alt="wnk logo" />
         </div>
       </div>

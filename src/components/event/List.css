@@ -36,3 +36,8 @@
 .events-list .event-category-group input[type="radio"]:checked + label {
   border-radius: 30px
 }
+
+.event-card-list {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
