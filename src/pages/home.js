@@ -16,7 +16,7 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    if (session.accessToken) {
+    if (!session.loading) {
       setPageLoading(false);
     }
   }, [session]);

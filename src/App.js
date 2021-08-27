@@ -18,7 +18,7 @@ import { parseSessionData } from "helpers/auth";
 import "./App.css";
 
 function App() {
-  const [session, setSession] = useState({});
+  const [session, setSession] = useState({ loading: true });
   useLayoutEffect(() => {
     initFirebase();
   }, []);
@@ -28,7 +28,7 @@ function App() {
     onAuthStateChanged(auth, (user) => {
       let data = {};
       if (user) {
-        data = parseSessionData(user);
+        data = { ...parseSessionData(user), loading: false };
       }
       setSession(data);
     });
