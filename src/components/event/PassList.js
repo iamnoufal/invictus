@@ -4,7 +4,7 @@ import "./PassList.css";
 
 const EventPassList = ({ passes = [] }) => {
   return (
-    <div className="event-pass-list d-flex m-5">
+    <div className="event-pass-list d-flex mx-2 my-5">
       {passes.map((passObj) => (
         <EventPass {...passObj} key={passObj.name} />
       ))}
