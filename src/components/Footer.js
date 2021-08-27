@@ -5,7 +5,8 @@ import "./Footer.css";
 const Footer = () => {
   let contact_url="mailto:21f1005287@student.onlinedegree.iitm.ac.in"
   return (
-    <footer className="py-5 mt-5 mx-5">
+    <footer className="py-5 mt-5 px-5 ">
+      <hr className="line" />
       <div className="row">
         <div className="col-3 contact-us-section">
           <h4 className="text-uppercase text-white">Contact us</h4>

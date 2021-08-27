@@ -1,43 +1,103 @@
+import { useState, useEffect } from "react";
+
+import { getEvents } from "apis/firebase";
+
 import EventCard from "./Card";
 
-const DUMMY_EVENTS = [
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 1",
-    category: "competitive"
+import "./List.css";
+
+const EVENT_CATEGORIES = Object.freeze({
+  fun: {
+    name: "fun",
   },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 2",
-    category: "competitive"
+  competitive: {
+    name: "competitive",
   },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 3",
-    category: "competitive"
+  educational: {
+    name: "educational",
   },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 4",
-    category: "competitive"
-  },
-  {
-    start: new Date(),
-    end: new Date(),
-    desc: "Event 5",
-    category: "competitive"
-  }
-]
+});
+
+const { fun: funCategory, competitive: compCategory, educational: eduCategory } = EVENT_CATEGORIES;
 
 const EventsList = () => {
-  return <div className="events-list">
-    <h1 className="text-center text-white mb-5 heading">Events List</h1>
-    <div className="m-auto justify-content-center">{DUMMY_EVENTS.map((eventObj) => <EventCard key={eventObj.desc} {...eventObj} /> )}</div>
-  </div>
-}
+  const [eventsByCategory, setEventsByCategory] = useState({});
+  const [activeCategory, setActiveCategory] = useState(funCategory.name);
+
+  const handleCategorySelection = (event) => {
+    setActiveCategory(event.target.value);
+  };
+
+  useEffect(() => {
+    /*eslint no-undef: "off"*/
+    getEvents().then((response = []) => {
+      const eventsObj = response.reduce((acc, obj) => {
+        acc[obj.category] = []
+          .concat(acc[obj.category] || [], obj)
+          .sort((a, b) => a.start.seconds < b.start.seconds);
+        return acc;
+      }, {});
+      setEventsByCategory(eventsObj);
+    });
+  }, []);
+
+  return (
+    <div className="events-list">
+      <h1 className="text-center text-white mb-5 heading text-uppercase">Events List</h1>
+      <div
+        className="btn-group event-category-group mb-5"
+        role="group"
+        aria-label="Event Category radio group"
+      >
+        <input
+          type="radio"
+          className="btn-check"
+          name="activeCategory"
+          value={funCategory.name}
+          id="btnradio1"
+          autoComplete="off"
+          onChange={handleCategorySelection}
+          checked={activeCategory === funCategory.name}
+        />
+        <label className="btn btn-outline-green" htmlFor="btnradio1">
+          Fun
+        </label>
+
+        <input
+          type="radio"
+          className="btn-check"
+          name="activeCategory"
+          value={compCategory.name}
+          id="btnradio2"
+          autoComplete="off"
+          onChange={handleCategorySelection}
+          checked={activeCategory === compCategory.name}
+        />
+        <label className="btn btn-outline-green " htmlFor="btnradio2">
+          Competitive
+        </label>
+
+        <input
+          type="radio"
+          className="btn-check"
+          name="activeCategory"
+          value={eduCategory.name}
+          id="btnradio3"
+          autoComplete="off"
+          onChange={handleCategorySelection}
+          checked={activeCategory === eduCategory.name}
+        />
+        <label className="btn btn-outline-green" htmlFor="btnradio3">
+          Educational
+        </label>
+      </div>
+      <div className="m-auto justify-content-center">
+        {(eventsByCategory[activeCategory] || []).map((eventObj) => (
+          <EventCard key={eventObj.desc} {...eventObj} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default EventsList;

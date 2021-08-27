@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import "./Nav.css"
 
+import "./Default.css";
+
 const LINKS = [
   {
     to: "/",
@@ -26,13 +28,13 @@ const LINKS = [
 
 const NavigationDefault = () => {
   return (
-    <nav class="navbar sticky-top navbar-expand-lg bg-color-darkgreen">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+    <nav className="navbar sticky-top navbar-expand-lg bg-color-darkgreen px-4">
+      <div className="container-fluid">
+        <span className="navbar-brand" style={{ fontFamily: "UnifrakturMaguntia" }}>
           Invictus
-        </a>
+        </span>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -40,12 +42,12 @@ const NavigationDefault = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav py-2">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav py-2 px-5">
             {LINKS.map(({ to, label }) => (
-              <li className="nav-item" key={to}>
+              <li className="nav-item mx-3" key={to}>
                 <NavLink
                   to={to}
                   exact

@@ -1,7 +1,14 @@
+
 .text-color-green {
   color: #3CCCC4 !important;
 }
 
 .bg-color-darkgreen {
   background-color: #063A50 !important;
+}
+
+.heading {
+  /* font: normal normal normal 60px/79px Roboto; */
+  letter-spacing: 6px;
+  color: #ffffff;
 }
