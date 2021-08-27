@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, getDoc, doc } from "@firebase/firestore";
+import { getFirestore, collection, getDocs, getDoc, doc, onSnapshot } from "@firebase/firestore";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export const getEvents = () => {
@@ -49,6 +49,9 @@ export const getProfileDetails = async () => {
 export const signInFirebase = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({
+    hd: "student.onlinedegree.iitm.ac.in",
+  });
   return signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -61,8 +64,9 @@ export const signInFirebase = () => {
         status: "success",
         token,
         user,
-      }
-    }).catch((error) => {
+      };
+    })
+    .catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -76,7 +80,14 @@ export const signInFirebase = () => {
         errorCode,
         errorMessage,
         email,
-        credential
-      }
+        credential,
+      };
     });
-}
+};
+
+export const listenEventChange = (callback) => {
+  const db = getFirestore();
+  const unsub = onSnapshot(doc(db, "events", "current"), (doc) => {
+    callback(doc.data());
+  });
+};

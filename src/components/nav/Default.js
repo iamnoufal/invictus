@@ -1,15 +1,13 @@
 import { NavLink } from "react-router-dom";
 
+import EventLiveTag from "components/event/LiveTag";
+
 import "./Default.css";
 
 const LINKS = [
   {
     to: "/",
     label: "Home",
-  },
-  {
-    to: "/schedule",
-    label: "Event Schedule",
   },
   {
     to: "/events",
@@ -27,7 +25,7 @@ const LINKS = [
 
 const NavigationDefault = () => {
   return (
-    <nav className="navbar sticky-top navbar-expand-lg bg-color-darkgreen px-4">
+    <nav className="navbar navbar-dark bg-dark sticky-top navbar-expand-lg px-4">
       <div className="container-fluid">
         <span className="navbar-brand" style={{ fontFamily: "UnifrakturMaguntia" }}>
           Invictus
@@ -44,7 +42,7 @@ const NavigationDefault = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav py-2 px-5">
+          <ul className="navbar-nav navbar-dark bg-dark py-2 px-5">
             {LINKS.map(({ to, label }) => (
               <li className="nav-item mx-3" key={to}>
                 <NavLink
@@ -58,6 +56,7 @@ const NavigationDefault = () => {
                 </NavLink>
               </li>
             ))}
+            <li><EventLiveTag /></li>
           </ul>
         </div>
       </div>
