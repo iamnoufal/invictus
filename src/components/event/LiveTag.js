@@ -4,6 +4,8 @@ import { listenEventChange } from "apis/firebase";
 
 import { AppContext } from "contexts/app";
 
+import "./LiveTag.css";
+
 const EventLiveTag = () => {
   const [isLive, setIsLive] = useState(false);
   const { session } = useContext(AppContext);
@@ -18,11 +20,12 @@ const EventLiveTag = () => {
   }, [session]);
 
   const tagClass = isLive ? "bg-color-aquagreen" : "bg-secondary";
-
+  const tagText = isLive ? "Live Now" : "Live Soon";
+  const shadowClass = isLive ? "shadow-live" : "shadow-disabled";
   return (
-    <span className={`btn ${tagClass} px-4 rounded-pill`} readOnly>
-      Live
-    </span>
+    <button className={`btn ${tagClass} px-4 rounded-pill ${shadowClass}`} readOnly>
+      {tagText}
+    </button>
   );
 };
 

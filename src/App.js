@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import { initFirebase } from "services/firebase";
@@ -68,6 +68,7 @@ function App() {
               )}
             />
             <Route exact path="/" component={HomePage} />
+            <Redirect from="*" to="/" />
           </Switch>
         </BrowserRouter>
       </AppContext.Provider>
