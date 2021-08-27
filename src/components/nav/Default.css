@@ -1,3 +1,8 @@
+.navbar-nav {
+  position: fixed;
+  right: 0;
+}
+
 .navbar .navbar-brand {
   font-size: 2.5rem;
   color: white;
