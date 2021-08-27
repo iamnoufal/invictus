@@ -25,7 +25,7 @@ const LINKS = [
 
 const NavigationDefault = () => {
   return (
-    <nav className="navbar navbar-dark bg-color-darkgreen sticky-top navbar-expand-lg px-4 shadow">
+    <nav className="navbar navbar-dark bg-color-darkgreen fixed-top navbar-expand-lg px-4 shadow">
       <div className="container-fluid">
         <span className="navbar-brand" style={{ fontFamily: "UnifrakturMaguntia" }}>
           Invictus
