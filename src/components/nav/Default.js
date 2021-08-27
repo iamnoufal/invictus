@@ -56,7 +56,7 @@ const NavigationDefault = () => {
                 </NavLink>
               </li>
             ))}
-            <li><EventLiveTag /></li>
+            <li className="nav-item mx-3"><EventLiveTag /></li>
           </ul>
         </div>
       </div>
