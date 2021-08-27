@@ -19,7 +19,10 @@ const EventPassPage = () => {
       .then(() => {
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        setLoading(false)
+        throw err;
+      });
   }, []);
 
   return (
