@@ -13,7 +13,6 @@ const EventPassPage = () => {
   useEffect(() => {
     getProfileDetails().then(setProfile).then(setLoading);
   }, []);
-  console.log(profile);
   return (
     <Layout>
       <div className="container event-pass-page">
