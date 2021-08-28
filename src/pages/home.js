@@ -44,7 +44,7 @@ const HomePage = () => {
   setTimeout(()=>{
   	checkBg();
   	window.addEventListener("resize",()=>{checkBg()});
-	},1000);
+	},500);
 	
   return (
     <Layout>
