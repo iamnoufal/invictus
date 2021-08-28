@@ -13,3 +13,12 @@ footer .line {
   color: rgba(60, 204, 197, 1);
   margin-bottom: 1.5rem;
 }
+
+footer .list-group-item {
+  position: relative;
+  width: auto;
+}
+
+footer .list-group-item img {
+  width: 6rem;
+}
