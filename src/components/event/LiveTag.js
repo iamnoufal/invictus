@@ -31,7 +31,6 @@ const EventLiveTag = () => {
       rel="noopener noreferrer"
       disabled={!isLive}
       className={`btn ${tagClass} px-4 rounded-pill ${shadowClass}`}
-      readOnly
     >
       {tagText}
     </a>
