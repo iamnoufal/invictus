@@ -32,12 +32,14 @@ const HomePage = () => {
     }
   }, [session]);
 
-  if (document.body.offsetWidth>1000) {bgimg="https://rahman24.github.io/invictus/backup/main-desk.png"}
-  else {bgimg="https://rahman24.github.io/invictus/backup/main-mob.png"}
+  window.addEventListener("resize",()=>{
+    if (document.body.offsetWidth>1000) {bgimg="https://rahman24.github.io/invictus/backup/main-desk.png"}
+    else {bgimg="https://rahman24.github.io/invictus/backup/main-mob.png"}
+  })
 
   return (
     <Layout>
-      <img src={bgimg} class="bg-img" />
+      <img src="" class="bg-img" />
 
       {/* <div className="home-page">
         <h2 className="text-center text-white text-uppercase my-5 heading">Home page</h2>
