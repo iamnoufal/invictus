@@ -7,27 +7,34 @@ import { AppContext } from "contexts/app";
 import "./LiveTag.css";
 
 const EventLiveTag = () => {
-  const [isLive, setIsLive] = useState(false);
+  const [liveData, setLiveData] = useState();
   const { session } = useContext(AppContext);
 
   useEffect(() => {
     if (session.accessToken) {
       listenEventChange((data) => {
         if (data) {
-          return setIsLive(true);
+          return setLiveData(data);
         }
-        return setIsLive(false);
       });
     }
   }, [session]);
+  const { live: isLive, link } = liveData || {};
 
   const tagClass = isLive ? "bg-color-aquagreen" : "bg-secondary";
   const tagText = isLive ? "Live Now" : "Live Soon";
   const shadowClass = isLive ? "shadow-live" : "shadow-disabled";
   return (
-    <button className={`btn ${tagClass} px-4 rounded-pill ${shadowClass}`} readOnly>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      disabled={!isLive}
+      className={`btn ${tagClass} px-4 rounded-pill ${shadowClass}`}
+      readOnly
+    >
       {tagText}
-    </button>
+    </a>
   );
 };
 
