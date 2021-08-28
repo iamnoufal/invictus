@@ -38,15 +38,9 @@ const EventsList = () => {
           acc[obj.category] = [].concat(acc[obj.category] || [], obj);
           return acc;
         }, {});
-        eventsObj[funCategory.name] = eventsObj[funCategory.name].sort(
-          (a, b) => a?.start?.seconds - b?.start?.seconds
-        );
-        eventsObj[compCategory.name] = eventsObj[compCategory.name].sort(
-          (a, b) => a?.start?.seconds - b?.start?.seconds
-        );
-        eventsObj[eduCategory.name] = eventsObj[eduCategory.name].sort(
-          (a, b) => a?.start?.seconds - b?.start?.seconds
-        );
+        eventsObj[funCategory.name].sort((a, b) => a?.start?.seconds - b?.start?.seconds);
+        eventsObj[compCategory.name].sort((a, b) => a?.start?.seconds - b?.start?.seconds);
+        eventsObj[eduCategory.name].sort((a, b) => a?.start?.seconds - b?.start?.seconds);
         setEventsByCategory(eventsObj);
         setLoadingEvents(false);
       })
