@@ -11,7 +11,6 @@ const Footer = () => {
       <hr className="line" />
       <div className="row">
         <div className="col-6 contact-us-section">
-          <h4 className="text-uppercase text-white heading fs-5">Contact us</h4>
           <ul className="list-group list-group-horizontal">
             <li className="list-group-item bg-transparent border-0 px-0">
               <a
@@ -34,7 +33,11 @@ const Footer = () => {
           </ul>
         </div>
         <div className="col-6 text-end logo">
-          <img src={wnkLogo} alt="wnk logo" />
+          <ul className="list-group list-group-horizontal">
+            <li className="list-group-item bg-transparent border-0 px-0">
+              <img src={wnkLogo} alt="wnk logo" />
+            </li>
+          </ul>
         </div>
       </div>
     </footer>
