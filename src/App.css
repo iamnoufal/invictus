@@ -20,22 +20,8 @@
   color: #ffffff;
 }
 
-.home-page {
-  background-image: url("https://rahman24.github.io/invictus/backup/main-desk.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-}
-
 .bg-img {
   width: 100%;
   margin: 0;
   padding: 0;
-}
-
-@media screen and (max-width: 1000px) {
-  .home-page {
-    background-image: url("https://rahman24.github.io/invictus/backup/main-mob.png");
-  }
 }

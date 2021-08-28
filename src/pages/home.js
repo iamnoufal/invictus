@@ -32,14 +32,20 @@ const HomePage = () => {
     }
   }, [session]);
 
-  window.addEventListener("resize",()=>{
-    if (document.body.offsetWidth>1000) {document.querySelector(".bg-img").src="https://rahman24.github.io/invictus/backup/main-desk.png"}
-    else {document.querySelector(".bg-img").src="https://rahman24.github.io/invictus/backup/main-mob.png"}
-  })
-
+  const checkBg = () => {
+    if (document.body.offsetWidth>1000) {
+      bgimg="https://rahman24.github.io/invictus/backup/main-desk.png";
+      document.querySelector(".bg-img").src=bgimg;
+    } else {
+      bgimg="https://rahman24.github.io/invictus/backup/main-mob.png";
+      document.querySelector(".bg-img").src=bgimg
+    }
+  }
+  checkBg();
+  window.addEventListener("resize",()=>{checkBg()});
   return (
     <Layout>
-      <img src="" class="bg-img" />
+      <img src={bgimg} class="bg-img" />
 
       {/* <div className="home-page">
         <h2 className="text-center text-white text-uppercase my-5 heading">Home page</h2>
