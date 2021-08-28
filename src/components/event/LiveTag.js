@@ -11,13 +11,11 @@ const EventLiveTag = () => {
   const { session } = useContext(AppContext);
 
   useEffect(() => {
-    if (session.accessToken) {
-      listenEventChange((data) => {
-        if (data) {
-          return setLiveData(data);
-        }
-      });
-    }
+    listenEventChange((data) => {
+      if (data) {
+        return setLiveData(data);
+      }
+    });
   }, [session]);
   const { live: isLive, link } = liveData || {};
 
