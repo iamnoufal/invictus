@@ -6,13 +6,15 @@ export const getEvents = () => {
   return getDocs(collection(db, "events")).then((querySnapshot) => {
     let events = [];
     querySnapshot.forEach((doc) => {
+      const { category, start, end, desc, img, gform } = doc.data();
       events.push({
         name: doc.id,
-        category: doc.data().category,
-        start: doc.data().start,
-        end: doc.data().end,
-        desc: doc.data().desc,
-        img: doc.data().img,
+        category,
+        start,
+        end,
+        desc,
+        img,
+        gform,
       });
     });
     return events;
@@ -98,6 +100,7 @@ export const signInFirebase = () => {
 export const listenEventChange = (callback) => {
   const db = getFirestore();
   const unsub = onSnapshot(doc(db, "events", "current"), (doc) => {
+
     callback(doc.data());
   });
 };
