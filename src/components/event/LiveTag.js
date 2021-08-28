@@ -22,13 +22,13 @@ const EventLiveTag = () => {
   const tagClass = isLive ? "bg-color-aquagreen" : "bg-secondary";
   const tagText = isLive ? "Live Now" : "Live Soon";
   const shadowClass = isLive ? "shadow-live" : "shadow-disabled";
+  const btnProps = session.accessToken ? { href: link, target: "_blank" } : { href: "/pass" };
   return (
     <a
-      href={link}
-      target="_blank"
       rel="noopener noreferrer"
       disabled={!isLive}
       className={`btn ${tagClass} px-4 rounded-pill ${shadowClass}`}
+      {...btnProps}
     >
       {tagText}
     </a>
