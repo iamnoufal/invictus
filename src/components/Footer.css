@@ -5,6 +5,13 @@ footer {
   width: 100%;
 }
 
+footer .logo .list-group-horizontal {
+  height: 100%;
+  vertical-align: middle;
+  align-items: center;
+  float: right;
+}
+
 footer .logo img {
   width: 5rem;
 }
