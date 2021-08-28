@@ -30,7 +30,7 @@ const EventCard = ({ name, desc, img: imgSrc, start = {}, end = {}, gform }) => 
                 <span>{startTime}</span> - <span>{endTime}</span>
               </span>
             </div> */}
-            <div className="my-5 description">{desc}</div>
+            <div className="my-5 description" dangerouslySetInnerHTML={{ __html: desc }} />
             <div className="text-center">
               <a
                 className="btn register-button rounded-pill bg-color-aquagreen"
