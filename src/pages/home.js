@@ -33,8 +33,8 @@ const HomePage = () => {
   }, [session]);
 
   window.addEventListener("resize",()=>{
-    if (document.body.offsetWidth>1000) {bgimg="https://rahman24.github.io/invictus/backup/main-desk.png"}
-    else {bgimg="https://rahman24.github.io/invictus/backup/main-mob.png"}
+    if (document.body.offsetWidth>1000) {document.querySelector(".bg-img").src="https://rahman24.github.io/invictus/backup/main-desk.png"}
+    else {document.querySelector(".bg-img").src="https://rahman24.github.io/invictus/backup/main-mob.png"}
   })
 
   return (
