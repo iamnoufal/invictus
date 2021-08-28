@@ -6,14 +6,13 @@ export const getEvents = () => {
   return getDocs(collection(db, "events")).then((querySnapshot) => {
     let events = [];
     querySnapshot.forEach((doc) => {
-      const { category, start, end, desc, img } = doc.data();
       events.push({
         name: doc.id,
-        category,
-        start,
-        end,
-        desc,
-        img
+        category: doc.data().category,
+        start: doc.data().start,
+        end: doc.data().end,
+        desc: doc.data().desc,
+        img: doc.data().img
       });
     });
     return events;
@@ -31,16 +30,15 @@ export const getProfileDetails = async () => {
     const { registered = [], group, house } = userDoc.data();
     for (let i of registered) {
       const eventDoc = await getDoc(doc(db, "events", i));
-      if (eventDoc.data()) {
-        const { category, start, end, desc } = eventDoc.data();
-        regEvents.push({
-          name: i,
-          category,
-          start,
-          end,
-          desc,
-        });
-      }
+      const { category, start, end, desc, img } = eventDoc.data();
+      regEvents.push({
+        name: i,
+        category,
+        start,
+        end,
+        desc,
+        img
+      });
     }
     return {
       userName,
