@@ -14,6 +14,7 @@ const HomePage = () => {
   const [pageLoading, setPageLoading] = useState(true);
   const { session, setSession } = useContext(AppContext);
   const history = useHistory();
+  var bgimg;
 
   const handleAuthFailure = (response) => {
     const { errorCode, errorMessage } = response;
@@ -31,16 +32,21 @@ const HomePage = () => {
     }
   }, [session]);
 
+  if (document.body.offsetWidth>1000) {bgimg="https://rahman24.github.io/invictus/backup/main-desk.png"}
+  else {bgimg="https://rahman24.github.io/invictus/backup/main-mob.png"}
+
   return (
     <Layout>
-      <div className="home-page py-5">
-        {/* <h2 className="text-center text-white text-uppercase my-5 heading">Home page</h2> */}
-        {/* <img
+      <img src={bgimg} class="bg-img" />
+
+      {/* <div className="home-page">
+        <h2 className="text-center text-white text-uppercase my-5 heading">Home page</h2>
+        <img
           src={homeLg}
           className="d-none d-md-block d-lg-block w-100 border-0 position-absolute"
           alt="home desktop"
         />
-        <img src={homeMob} className="d-block d-md-none d-lg-none" alt="home mobile" /> */}
+        <img src={homeMob} className="d-block d-md-none d-lg-none" alt="home mobile" />
         <Loader loading={pageLoading}>
           <div className="">
             {session.accessToken ? (
@@ -54,7 +60,7 @@ const HomePage = () => {
             )}
           </div>
         </Loader>
-      </div>
+      </div> */}
     </Layout>
   );
 };

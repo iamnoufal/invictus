@@ -6,12 +6,36 @@
 .bg-color-darkgreen {
   background-color: #063A50 !important;
 }
+
+.bg-color {
+  background: linear-gradient(180deg, #063A50 0%, #155E6C 100%);
+}
+
 .bg-color-aquagreen {
   background-color: #3CCCC4 !important;
 }
 
 .heading {
-  /* font: normal normal normal 60px/79px Roboto; */
   letter-spacing: 6px;
   color: #ffffff;
+}
+
+.home-page {
+  background-image: url("https://rahman24.github.io/invictus/backup/main-desk.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .home-page {
+    background-image: url("https://rahman24.github.io/invictus/backup/main-mob.png");
+  }
 }
