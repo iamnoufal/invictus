@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="row">
         <div className="col-3 contact-us-section">
           <h4 className="text-uppercase text-white">Contact us</h4>
-          <p className="text-white">
+          <p className="text-color-green">
             <a href={contact_url}>Noufal Rahman</a>
           </p>
         </div>

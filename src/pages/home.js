@@ -31,7 +31,7 @@ const HomePage = () => {
       setPageLoading(false);
     }
   }, [session]);
-
+  
   const checkBg = () => {
     if (document.body.offsetWidth>1000) {
       bgimg="https://rahman24.github.io/invictus/backup/main-desk.png";
@@ -41,13 +41,15 @@ const HomePage = () => {
       document.querySelector(".bg-img").src=bgimg
     }
   }
-  checkBg();
-  window.addEventListener("resize",()=>{checkBg()});
+  setTimeout(()=>{
+  	checkBg();
+  	window.addEventListener("resize",()=>{checkBg()});
+	},1000);
+	
   return (
     <Layout>
-      <img src={bgimg} class="bg-img" />
-
-      {/* <div className="home-page">
+    	<img src="" className="bg-img" />
+      {/* <div className="home-page py-5">
         <h2 className="text-center text-white text-uppercase my-5 heading">Home page</h2>
         <img
           src={homeLg}

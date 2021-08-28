@@ -42,7 +42,7 @@ const NavigationDefault = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav navbar-dark py-2 px-5">
+          <ul className="navbar-nav navbar-dark bg-color-darkgreen py-2 px-5">
             {LINKS.map(({ to, label }) => (
               <li className="nav-item mx-3" key={to}>
                 <NavLink
