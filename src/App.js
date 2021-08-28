@@ -45,15 +45,7 @@ function App() {
               )}
             />
             <Route exact path="/team" component={TeamPage} />
-            <Route
-              exact
-              path="/pass"
-              render={(routeProps) => (
-                <Authenticate>
-                  <EventPassPage {...routeProps} />
-                </Authenticate>
-              )}
-            />
+            <Route exact path="/pass" render={(routeProps) => <EventPassPage {...routeProps} />} />
             <Route exact path="/" component={HomePage} />
             <Redirect from="*" to="/" />
           </Switch>
