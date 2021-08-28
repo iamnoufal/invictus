@@ -1,11 +1,16 @@
+import { AppContext } from "contexts/app";
+import { useContext } from "react";
+
 import "./Card.css";
 
 const EventCard = ({ name, desc, img, start = {}, end = {}, gform }) => {
+  const { session } = useContext(AppContext);
   const options = { hour: "2-digit", minute: "2-digit" };
   const startDate = new Date(start.seconds * 1000).toDateString();
   const endDate = new Date(end.seconds * 1000).toDateString();
   const startTime = new Date(start.seconds * 1000).toLocaleTimeString("en-US", options);
   const endTime = new Date(end.seconds * 1000).toLocaleTimeString("en-US", options);
+  const btnProps = session.accessToken ? { href: gform, target: "_blank" } : { href: "/pass" };
   return (
     <div className="event-card card mx-4 mt-2 mb-5 p-0 rounded">
       <div className="row">
@@ -26,9 +31,8 @@ const EventCard = ({ name, desc, img, start = {}, end = {}, gform }) => {
             <div className="mt-5 description">{desc}</div>
             <a
               className="btn register-button rounded-pill bg-color-aquagreen"
-              href={gform}
               rel="noreferrer noopener"
-              target="_blank"
+              {...btnProps}
             >
               Register Now
             </a>
