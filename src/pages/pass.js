@@ -25,7 +25,14 @@ const EventPassPage = () => {
   };
 
   useEffect(() => {
+    if(!session.loading) {
+      setLoading(false);
+    }
+  }, [session])
+
+  useEffect(() => {
     if (session.accessToken) {
+      setLoading(true);
       getProfileDetails()
         .then((response) => {
           setProfile(response);
