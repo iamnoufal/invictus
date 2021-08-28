@@ -11,12 +11,14 @@ const EventLiveTag = () => {
   const { session } = useContext(AppContext);
 
   useEffect(() => {
-    listenEventChange((data) => {
-      if(data) {
-        return setIsLive(true)
-      }
-      return setIsLive(false);
-    })
+    if (session.accessToken) {
+      listenEventChange((data) => {
+        if (data) {
+          return setIsLive(true);
+        }
+        return setIsLive(false);
+      });
+    }
   }, [session]);
 
   const tagClass = isLive ? "bg-color-aquagreen" : "bg-secondary";

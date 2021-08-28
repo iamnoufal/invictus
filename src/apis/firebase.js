@@ -12,7 +12,7 @@ export const getEvents = () => {
         start: doc.data().start,
         end: doc.data().end,
         desc: doc.data().desc,
-        img: doc.data().img
+        img: doc.data().img,
       });
     });
     return events;
@@ -30,15 +30,17 @@ export const getProfileDetails = async () => {
     const { registered = [], group, house } = userDoc.data();
     for (let i of registered) {
       const eventDoc = await getDoc(doc(db, "events", i));
-      const { category, start, end, desc, img } = eventDoc.data();
-      regEvents.push({
-        name: i,
-        category,
-        start,
-        end,
-        desc,
-        img
-      });
+      if (eventDoc.data()) {
+        const { category, start, end, desc, img } = eventDoc.data();
+        regEvents.push({
+          name: i,
+          category,
+          start,
+          end,
+          desc,
+          img,
+        });
+      }
     }
     return {
       userName,
