@@ -5,7 +5,7 @@ import "./Layout.css";
 
 const Layout = ({ children }) => {
   return (
-    <main className="bg-color-darkgreen">
+    <main className="bg-color">
       <NavigationDefault />
       <div className="layout-container">{children}</div>
       <Footer />

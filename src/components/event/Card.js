@@ -2,7 +2,7 @@ import "./Card.css";
 
 import sampleImage from "assets/images/sample_event.png";
 
-const EventCard = ({ name, desc, img: imgSrc = sampleImage, start = {}, end = {}, gform }) => {
+const EventCard = ({ name, desc, img, start = {}, end = {}, gform }) => {
   const options = { hour: "2-digit", minute: "2-digit" };
   const startDate = new Date(start.seconds * 1000).toDateString();
   const startTime = new Date(start.seconds * 1000).toLocaleTimeString("en-US", options);
@@ -10,10 +10,10 @@ const EventCard = ({ name, desc, img: imgSrc = sampleImage, start = {}, end = {}
   return (
     <div className="event-card card mx-4 mt-2 mb-5 p-0 rounded">
       <div className="row">
-        <div className="col-6 image-block position-relative">
-          <img src={imgSrc} alt={desc} className="card-img-left event-img" />
+        <div className="">
+          <img src={img} alt={desc} className="card-img-left event-img" />
         </div>
-        <div className="col-6 position-relative">
+        <div className="">
           <div className="card-body m-auto text-center">
             <div className="name card-title text-uppercase text-white fw-bold mb-5">{name}</div>
             <div className="date-start fw-bold">{startDate}</div>

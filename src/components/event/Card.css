@@ -1,6 +1,6 @@
 .event-card {
   flex-flow: column;
-  width: 35rem;
+  width: 40%;
   height: auto;
   box-shadow: inset 0 1px 5px #3cccc6, 0 1px 20px rgba(0,0,0,.6);
   border: 1px solid #3cccc5;
@@ -9,8 +9,11 @@
   background-color: #063A50;
 }
 
+@media screen and (max-width: 1000px) {.event-card {width:100%}}
+
 .event-card .event-img {
   width: 100%;
+  padding: 5px;
 }
 
 .event-card .card-body {
@@ -24,10 +27,24 @@
 }
 
 .event-card .register-button {
-  position: absolute;
+  position: inherit;
   margin: auto;
   bottom: 2rem;
   left: 0;
   right: 0;
   width: 10rem;
+}
+
+
+.card-title {
+  font-size: 1.5rem;
+}
+
+.event-row {
+  display: flex;
+  flex-flow: column;
+}
+
+.description {
+  margin-bottom: 1rem;
 }

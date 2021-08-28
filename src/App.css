@@ -10,8 +10,19 @@
   background-color: #3CCCC4 !important;
 }
 
+
+.bg-color {
+  background: linear-gradient(180deg, #063A50 0%, #155E6C 75%);
+}
+
+
+.bg-img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .heading {
-  /* font: normal normal normal 60px/79px Roboto; */
   letter-spacing: 6px;
   color: #ffffff;
 }
