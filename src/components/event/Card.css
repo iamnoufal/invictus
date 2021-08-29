@@ -29,9 +29,6 @@
 .event-card .register-button {
   position: inherit;
   margin: auto;
-  bottom: 2rem;
-  left: 0;
-  right: 0;
   width: 10rem;
 }
 
@@ -43,8 +40,4 @@
 .event-row {
   display: flex;
   flex-flow: column;
-}
-
-.description {
-  margin-bottom: 1rem;
 }
