@@ -44,7 +44,3 @@
   display: flex;
   flex-flow: column;
 }
-
-.description {
-  margin-bottom: 1rem;
-}

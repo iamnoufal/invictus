@@ -12,14 +12,14 @@ const EventCard = ({ name, desc, img, start = {}, end = {}, gform, rules, type =
   const endTime = new Date(end.seconds * 1000).toLocaleTimeString("en-US", options);
   const btnProps = session.accessToken ? { href: gform, target: "_blank" } : { href: "/pass" };
   return (
-    <div className="event-card card mx-4 mt-2 mb-5 p-0 rounded">
+    <div className="event-card card mx-4 mt-2 mb-3 p-0 rounded">
       <div className="row">
         <div className="">
           <img src={img} alt={desc} className="card-img-left event-img" />
         </div>
         <div className="">
           <div className="card-body m-auto text-center">
-            <div className="name card-title text-uppercase text-white fw-bold mb-5">{name}</div>
+            <div className="name card-title text-uppercase text-white fw-bold mb-3">{name}</div>
             <div className="date-start">
               <span className="text-white">Starts: </span>
               {startDate} {startTime}
@@ -28,9 +28,9 @@ const EventCard = ({ name, desc, img, start = {}, end = {}, gform, rules, type =
               <span className="text-white">Ends: </span>
               {endDate} {endTime}
             </div>
-            <div className="mt-5 description">{desc}</div>
+            <div className="mt-3 description">{desc}</div>
             <a
-              className="mx-1 btn register-button rounded-pill bg-color-aquagreen my-2"
+              className="mx-1 btn mt-3 mb-3 register-button rounded-pill bg-color-aquagreen"
               rel="noreferrer noopener"
               {...btnProps}
             >
@@ -38,7 +38,7 @@ const EventCard = ({ name, desc, img, start = {}, end = {}, gform, rules, type =
             </a>
             {rules && (
               <a
-                className="mx-1 btn register-button rounded-pill btn-info my-2"
+                className="mx-1 btn mt-3 mb-3 register-button rounded-pill btn-info"
                 target="_blank"
                 rel="noreferrer noopener"
                 href={rules}
