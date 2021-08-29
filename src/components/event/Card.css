@@ -29,7 +29,10 @@
 .event-card .register-button {
   position: inherit;
   margin: auto;
-  width: 10rem;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  min-width: 10rem;
 }
 
 

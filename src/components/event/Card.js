@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import "./Card.css";
 
-const EventCard = ({ name, desc, img, start = {}, end = {}, gform }) => {
+const EventCard = ({ name, desc, img, start = {}, end = {}, gform, rules, type = "" }) => {
   const { session } = useContext(AppContext);
   const options = { hour: "2-digit", minute: "2-digit" };
   const startDate = new Date(start.seconds * 1000).toDateString();
@@ -30,12 +30,22 @@ const EventCard = ({ name, desc, img, start = {}, end = {}, gform }) => {
             </div>
             <div className="mt-3 description">{desc}</div>
             <a
-              className="btn mt-3 mb-3 register-button rounded-pill bg-color-aquagreen"
+              className="mx-1 btn mt-3 mb-3 register-button rounded-pill bg-color-aquagreen"
               rel="noreferrer noopener"
               {...btnProps}
             >
-              Register Now
+              {type || "Register Now"}
             </a>
+            {rules && (
+              <a
+                className="mx-1 btn mt-3 mb-3 register-button rounded-pill btn-info"
+                target="_blank"
+                rel="noreferrer noopener"
+                href={rules}
+              >
+                Rules
+              </a>
+            )}
           </div>
         </div>
       </div>
