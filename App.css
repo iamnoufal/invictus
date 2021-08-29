@@ -1,0 +1,28 @@
+
+.text-color-green {
+  color: #3CCCC4 !important;
+}
+
+.bg-color-darkgreen {
+  background-color: #063A50 !important;
+}
+.bg-color-aquagreen {
+  background-color: #3CCCC4 !important;
+}
+
+
+.bg-color {
+  background: linear-gradient(180deg, #063A50 0%, #155E6C 75%);
+}
+
+
+.bg-img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  letter-spacing: 6px;
+  color: #ffffff;
+}

@@ -7,7 +7,7 @@ import youtubeIcon from "assets/images/icon_youtube.png";
 const Footer = () => {
   const contact_url = "mailto:21f1005287@student.onlinedegree.iitm.ac.in";
   return (
-    <footer className="py-5 mt-5 px-5 ">
+    <footer className="footer ">
       <hr className="line" />
       <div className="row">
         <div className="col-6 contact-us-section">
@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="col-6 text-end logo">
           <ul className="list-group list-group-horizontal">
             <li className="list-group-item bg-transparent border-0 px-0">
-              <img src={wnkLogo} alt="wnk logo" />
+              <img src={wnkLogo} style={{width:"6rem"}} alt="wnk logo" />
             </li>
           </ul>
         </div>

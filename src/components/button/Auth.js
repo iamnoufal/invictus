@@ -2,6 +2,8 @@ import { signInFirebase } from "apis/firebase";
 
 import { parseSessionData } from "helpers/auth";
 
+import "./btn.css";
+
 const AuthButton = ({ onAuthSuccess, onAuthFailure }) => {
   const handleClick = async () => {
     const response = await signInFirebase();
@@ -17,7 +19,7 @@ const AuthButton = ({ onAuthSuccess, onAuthFailure }) => {
   };
 
   return (
-    <button className="btn btn-primary" onClick={handleClick}>
+    <button className="btn register-button rounded-pill bg-color-aquagreen signin" onClick={handleClick}>
       Sign in
     </button>
   );
