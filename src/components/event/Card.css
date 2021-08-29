@@ -32,7 +32,7 @@
   bottom: 2rem;
   left: 0;
   right: 0;
-  width: 10rem;
+  min-width: 10rem;
 }
 
 
