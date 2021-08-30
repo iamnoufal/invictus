@@ -1,4 +1,4 @@
 .layout-container {
-  min-height: calc(100vh - 200px);
+  min-height: 100vh;
   padding-top: 5rem;
 }
