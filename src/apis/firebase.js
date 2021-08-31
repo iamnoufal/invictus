@@ -6,7 +6,7 @@ export const getEvents = () => {
   return getDocs(collection(db, "events")).then((querySnapshot) => {
     let events = [];
     querySnapshot.forEach((doc) => {
-      const { category, start, end, desc, img, gform, type, rules } = doc.data();
+      const { category, start, end, desc, img, gform, type, rules, completed } = doc.data();
       events.push({
         name: doc.id,
         category,
@@ -16,7 +16,8 @@ export const getEvents = () => {
         img,
         gform,
         type,
-        rules
+        rules,
+        completed
       });
     });
     return events;
