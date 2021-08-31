@@ -49,14 +49,24 @@ const EventsList = () => {
         throw err;
       });
   }, []);
-  
-  if (Notification.permission=="default" || Notification.permission=="denied") {
-    var notification_btn = <div className="m-auto text-center my-4">
-    	<div className="btn register-button rounded-pill bg-color-aquagreen px-5">
-    		Get Notified of Upcoming Events
-    	</div>
-    </div>
-  }
+
+  const registerForNotification = () => {};
+
+  const renderNotifyButton = () => {
+    if (Notification.permission === "default" || Notification.permission === "denied") {
+      return (
+        <div className="m-auto text-center my-4">
+          <button
+            className="btn register-button rounded-pill bg-color-aquagreen px-5"
+            onClick={registerForNotification}
+          >
+            Get Notified of Upcoming Events
+          </button>
+        </div>
+      );
+    }
+    return "";
+  };
 
   const eventList = eventsByCategory[activeCategory] || [];
   return (
@@ -121,7 +131,7 @@ const EventsList = () => {
           )}
         </Loader>
       </div>
-      {notification_btn}
+      {renderNotifyButton()}
     </div>
   );
 };
