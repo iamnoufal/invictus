@@ -5,19 +5,11 @@ import { getEvents } from "apis/firebase";
 import EventCard from "./Card";
 import Loader from "components/Loader";
 
-import "./List.css";
+import { EVENT_CATEGORIES } from "constants/app-defaults";
 
-const EVENT_CATEGORIES = Object.freeze({
-  fun: {
-    name: "fun",
-  },
-  competitive: {
-    name: "competitive",
-  },
-  educational: {
-    name: "educational",
-  },
-});
+import { getSortedEventsByCategory } from "helpers/event";
+
+import "./List.css";
 
 const { fun: funCategory, competitive: compCategory, educational: eduCategory } = EVENT_CATEGORIES;
 
@@ -34,13 +26,7 @@ const EventsList = () => {
     /*eslint no-undef: "off"*/
     getEvents()
       .then((response = []) => {
-        const eventsObj = response.reduce((acc, obj) => {
-          acc[obj.category] = [].concat(acc[obj.category] || [], obj);
-          return acc;
-        }, {});
-        eventsObj[funCategory.name].sort((a, b) => a?.start?.seconds - b?.start?.seconds);
-        eventsObj[compCategory.name].sort((a, b) => a?.start?.seconds - b?.start?.seconds);
-        eventsObj[eduCategory.name].sort((a, b) => a?.start?.seconds - b?.start?.seconds);
+        const eventsObj = getSortedEventsByCategory(response);
         setEventsByCategory(eventsObj);
         setLoadingEvents(false);
       })

@@ -2,8 +2,9 @@ import { AppContext } from "contexts/app";
 import { useContext } from "react";
 
 import "./Card.css";
+import Ribbon from "components/Ribbon";
 
-const EventCard = ({ name, desc, img, start = {}, end = {}, gform, rules, type = "" }) => {
+const EventCard = ({ name, desc, img, start = {}, end = {}, gform, rules, type = "", completed = false }) => {
   const { session } = useContext(AppContext);
   const options = { hour: "2-digit", minute: "2-digit" };
   const startDate = new Date(start.seconds * 1000).toDateString();
@@ -11,9 +12,11 @@ const EventCard = ({ name, desc, img, start = {}, end = {}, gform, rules, type =
   const startTime = new Date(start.seconds * 1000).toLocaleTimeString("en-US", options);
   const endTime = new Date(end.seconds * 1000).toLocaleTimeString("en-US", options);
   const btnProps = session.accessToken ? { href: gform, target: "_blank" } : { href: "/pass" };
+  const completedEventClasses = completed ? "opacity-50" : "";
   return (
     <div className="event-card card mx-4 mt-2 mb-3 p-0 rounded">
-      <div className="row">
+      {completed && <Ribbon text="Completed" className="zindex-tooltip" />}
+      <div className={`row ${completedEventClasses}`}>
         <div className="">
           <img src={img} alt={desc} className="card-img-left event-img" />
         </div>
