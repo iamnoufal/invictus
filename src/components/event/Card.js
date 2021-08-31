@@ -16,8 +16,8 @@ const EventCard = ({ name, desc, img, start = {}, end = {}, gform, rules, type =
   return (
     <div className="event-card card mx-4 mt-2 mb-3 p-0 rounded">
       {completed && <Ribbon text="Completed" className="zindex-tooltip" />}
-      <div className={`row ${completedEventClasses}`}>
-        <div className="">
+      <div className="row">
+        <div className={completedEventClasses}>
           <img src={img} alt={desc} className="card-img-left event-img" />
         </div>
         <div className="">
