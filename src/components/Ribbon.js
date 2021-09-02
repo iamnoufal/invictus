@@ -1,8 +1,8 @@
 import "./Ribbon.css";
 
 const Ribbon = ({ text, className }) => (
-  <div class="ribbon-wrapper-green">
-    <div class={`ribbon-green ${className}`}>{text}</div>
+  <div className="ribbon-wrapper-green">
+    <div className={`ribbon-green ${className}`}>{text}</div>
   </div>
 );
 

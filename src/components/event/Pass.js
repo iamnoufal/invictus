@@ -1,12 +1,23 @@
 import "./Pass.css";
 
-const EventPass = ({ name, status, ...rest }) => {
+const EventPass = ({ name, img, start, end, ...rest }) => {
+  const currentDate = parseInt(Date.now()/1000);
+  const status = (() => {
+    if(currentDate < start.seconds) {
+      return "Yet to Start";
+    }
+    if(currentDate > start.seconds && currentDate < end.seconds) {
+      return "Ongoing";
+    }
+    return "Completed"
+  })();
   return (
-    <div className="event-pass card px-2 py-4 m-5 bg-color-darkgreen">
+    <div className="event-pass card m-5 bg-color-darkgreen">
+      <div className="mb-3"><img src={img} className="event-img rounded" alt="event pass" /></div>
       <h3 className="text-color-green text-uppercase text-center mb-4">{name}</h3>
-      <div className="text-color-green text-center">
+      <div className="text-color-green text-center mb-4">
         <span className="text-uppercase">
-          <span >Event Status:</span> {status}
+          <span>Event Status: </span> <span className="text-white fw-bold">{status}</span>
         </span>
       </div>
     </div>

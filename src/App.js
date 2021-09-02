@@ -7,6 +7,7 @@ import EventSchedulePage from "pages/schedule";
 import EventsPage from "pages/events";
 import TeamPage from "pages/team";
 import EventPassPage from "pages/pass";
+import EventLivePage from "pages/live";
 import Authenticate from "components/Auth";
 
 import { AppContext } from "contexts/app";
@@ -15,15 +16,16 @@ import { parseSessionData } from "helpers/auth";
 
 import "./App.css";
 
+const defaultState = { loading: false, liveData: {} };
 function App() {
-  const [session, setSession] = useState({ loading: true });
+  const [session, setSession] = useState({ ...defaultState, loading: true });
 
   useLayoutEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
-      let data = {};
+      let data = { ...defaultState };
       if (user) {
-        data = { ...parseSessionData(user), loading: false };
+        data = { ...defaultState, ...parseSessionData(user), loading: false };
       }
       setSession(data);
     });
@@ -41,6 +43,15 @@ function App() {
               render={(routeProps) => (
                 <Authenticate>
                   <EventSchedulePage {...routeProps} />
+                </Authenticate>
+              )}
+            />
+            <Route
+              exact
+              path="/live"
+              render={(routeProps) => (
+                <Authenticate>
+                  <EventLivePage {...routeProps} />
                 </Authenticate>
               )}
             />
