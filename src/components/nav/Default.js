@@ -23,7 +23,17 @@ const LINKS = [
   },
 ];
 
+
 const NavigationDefault = () => {
+	const toggleCheck = () => {
+		if (String(document.getElementById("navbarNav").classList).includes("show")) {
+				document.getElementById("toggle").classList.remove("navbar-toggler-icon");
+				document.getElementById("toggle").innerHTML="X";
+			} else {
+				document.getElementById("toggle").classList.add("navbar-toggler-icon");
+				document.getElementById("toggle").innerHTML="";
+			}
+	}
   return (
     <nav className="navbar navbar-dark bg-color-darkgreen fixed-top navbar-expand-lg px-4 shadow">
       <div className="container-fluid">
@@ -38,8 +48,9 @@ const NavigationDefault = () => {
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={toggleCheck}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" id="toggle"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav navbar-dark bg-color-darkgreen py-2 px-5">
