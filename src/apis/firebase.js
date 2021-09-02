@@ -1,5 +1,14 @@
-import { getFirestore, collection, getDocs, getDoc, doc, onSnapshot } from "@firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  onSnapshot,
+  updateDoc,
+} from "@firebase/firestore";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { getMessaging, onMessage } from "firebase/messaging";
 
 export const getEvents = () => {
   const db = getFirestore();
@@ -17,7 +26,7 @@ export const getEvents = () => {
         gform,
         type,
         rules,
-        completed
+        completed,
       });
     });
     return events;
@@ -103,7 +112,22 @@ export const signInFirebase = () => {
 export const listenEventChange = (callback) => {
   const db = getFirestore();
   const unsub = onSnapshot(doc(db, "events", "current"), (doc) => {
-
     callback(doc.data());
+  });
+};
+
+export const updateFCMTokenToDB = ({ email, fcm }) => {
+  const db = getFirestore();
+  return updateDoc(doc(db, "subscription", email), { fcm }).catch((err) => {
+    debugger;
+  });
+};
+
+export const onMessageListener = () => {
+  const messaging = getMessaging();
+  return new Promise((resolve) => {
+    onMessage(messaging, (payload) => {
+      resolve(payload);
+    });
   });
 };
