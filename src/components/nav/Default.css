@@ -29,6 +29,10 @@
   border-radius: 0
 }
 
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+	background-image: url("../../assets/images/icon_close.png");
+}
+
 .navbar-toggler:focus {
   box-shadow: 0 0 0 0
 }
