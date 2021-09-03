@@ -15,7 +15,7 @@ import { AppContext } from "contexts/app";
 
 import { parseSessionData } from "helpers/auth";
 
-import { onMessageListener } from "apis/firebase";
+import { onMessageListener, updateFCMTokenToDB } from "apis/firebase";
 
 import "./App.css";
 
@@ -39,8 +39,7 @@ function App() {
       const messaging = getMessaging();
       getToken(messaging, { vapidKey: process.env.REACT_APP_FIREBASE_VAPID_KEY })
         .then((token) => {
-          console.log(token);
-          // updateFCMTokenToDB({ email: session.email, fcm: token });
+          updateFCMTokenToDB({ fcm: token });
         })
         .catch((err) => {
           alert(err);

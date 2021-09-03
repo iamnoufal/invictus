@@ -5,7 +5,7 @@ import {
   getDoc,
   doc,
   onSnapshot,
-  updateDoc,
+  setDoc,
 } from "@firebase/firestore";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { getMessaging, onMessage } from "firebase/messaging";
@@ -116,10 +116,13 @@ export const listenEventChange = (callback) => {
   });
 };
 
-export const updateFCMTokenToDB = ({ email, fcm }) => {
+export const updateFCMTokenToDB = ({ fcm }) => {
   const db = getFirestore();
-  return updateDoc(doc(db, "subscription", email), { fcm }).catch((err) => {
-    debugger;
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const { email } = user;
+  return setDoc(doc(db, "subscription", email), { fcm }).catch((err) => {
+    alert(err);
   });
 };
 
