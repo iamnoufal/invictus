@@ -39,7 +39,7 @@ const NavigationDefault = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon" id="toggle"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav navbar-dark bg-color-darkgreen py-2 px-5">
