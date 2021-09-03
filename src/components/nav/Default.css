@@ -30,7 +30,7 @@
 }
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-	background-image: url("../../assets/images/icon_close.png");
+	background-image: url("~assets/images/icon_close.png");
 }
 
 .navbar-toggler:focus {
