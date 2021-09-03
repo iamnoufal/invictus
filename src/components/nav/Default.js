@@ -50,13 +50,15 @@ const NavigationDefault = () => {
                   exact
                   activeClassName="active text-color-green text-decoration-underline"
                   className="nav-link text-uppercase text-white"
-                  style={{ "letterSpacing": "3.3px", "textUnderlineOffset": "3px"}}
+                  style={{ letterSpacing: "3.3px", textUnderlineOffset: "3px" }}
                 >
                   {label}
                 </NavLink>
               </li>
             ))}
-            <li className="nav-item mx-3"><EventLiveTag /></li>
+            <li className="nav-item mx-3">
+              <EventLiveTag />
+            </li>
           </ul>
         </div>
       </div>

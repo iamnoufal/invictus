@@ -3,4 +3,5 @@
   position: relative;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
