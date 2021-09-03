@@ -143,7 +143,7 @@ const EventsList = () => {
             </h4>
           )}
         </div>
-        {renderNotifyButton()}
+        {session.token && renderNotifyButton()}
       </Loader>
     </div>
   );
