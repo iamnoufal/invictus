@@ -1,7 +1,6 @@
 import { useState, useLayoutEffect, useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getMessaging, getToken } from "firebase/messaging";
 
 import HomePage from "pages/home";
 import EventSchedulePage from "pages/schedule";
@@ -15,7 +14,7 @@ import { AppContext } from "contexts/app";
 
 import { parseSessionData } from "helpers/auth";
 
-import { onMessageListener, updateFCMTokenToDB } from "apis/firebase";
+import { onMessageListener } from "apis/firebase";
 
 import "./App.css";
 
@@ -33,19 +32,6 @@ function App() {
       setSession(data);
     });
   }, []);
-
-  useLayoutEffect(() => {
-    if (session.accessToken) {
-      const messaging = getMessaging();
-      getToken(messaging, { vapidKey: process.env.REACT_APP_FIREBASE_VAPID_KEY })
-        .then((token) => {
-          updateFCMTokenToDB({ fcm: token });
-        })
-        .catch((err) => {
-          alert(err);
-        });
-    }
-  }, [session]);
 
   useEffect(() => {
     onMessageListener().then(payload => {
