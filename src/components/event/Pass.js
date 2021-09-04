@@ -12,7 +12,7 @@ const EventPass = ({ name, img, start, end, ...rest }) => {
     return "Completed"
   })();
   return (
-    <div className="event-pass card m-5 bg-color-darkgreen">
+    <div className="event-card card mx-4 mt-2 mb-3 p-0 rounded">
       <div className="mb-3"><img src={img} className="event-img rounded" alt="event pass" /></div>
       <h3 className="text-color-green text-uppercase text-center mb-4">{name}</h3>
       <div className="text-color-green text-center mb-4">
