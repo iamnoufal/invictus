@@ -134,3 +134,21 @@ export const onMessageListener = () => {
     });
   });
 };
+
+export const getTeamDetails = () => {
+  const db = getFirestore();
+  return getDocs(collection(db, "team")).then((querySnapshot) => {
+    let members = [];
+    querySnapshot.forEach((doc) => {
+      const { contact, desc, img, name, role } = doc.data();
+      members.push({
+        name,
+        desc,
+        img,
+        contact,
+        role
+      });
+    });
+    return members;
+  });
+};

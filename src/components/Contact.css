@@ -1,0 +1,9 @@
+.contact-list {
+  margin: auto;
+  justify-content: center;
+}
+.contact-list .social-icon {
+  padding: 0 1rem;
+  max-width: 3.8rem;
+  /* width: 100%; */
+}
