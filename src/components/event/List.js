@@ -48,7 +48,7 @@ const EventsList = () => {
   }, [session]);
 
   const registerForNotification = () => {
-    if (session.accessToken && window.confirm("Do you want to recieve notifications for upcoming events?")) {
+    if (session.accessToken && window.confirm("Do you want to receive notifications for upcoming events?")) {
       const messaging = getMessaging();
       getToken(messaging, { vapidKey: process.env.REACT_APP_FIREBASE_VAPID_KEY })
         .then((token) => {
