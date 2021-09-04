@@ -12,7 +12,7 @@
   .navbar-nav {
   	width: 100%;
   	height: 100vh;
-  	padding: 6rem 0 !important;
+  	padding: 8rem 0 !important;
   	text-align: center;
  		background: linear-gradient(180deg, #063A50 0%, #155E6C 75%)
  	}
@@ -31,6 +31,7 @@
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	background-image: url("~assets/images/icon_close.png");
+	opacity: 0.6
 }
 
 .navbar-toggler:focus {
