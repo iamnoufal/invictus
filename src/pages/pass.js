@@ -63,6 +63,9 @@ const EventPassPage = () => {
             </div>
           )}
         </Loader>
+        <h6 className="text-center my-5 mx-5" style={{color:"rgba(255,255,255,0.6)"}}>
+        	If you face any issues signing in with your student mail id or if you can't see your registered event passes, please let us know: <a href="mailto:21f1005287@student.onlinedegree.iitm.ac.in" className="text-white">Web Team</a>
+        </h6>
       </div>
     </Layout>
   );
