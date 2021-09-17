@@ -3,11 +3,10 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import HomePage from "pages/home";
-import EventSchedulePage from "pages/schedule";
 import EventsPage from "pages/events";
 import TeamPage from "pages/team";
-import EventPassPage from "pages/pass";
-import EventLivePage from "pages/live";
+import LoginPage from "pages/login";
+import ProfilePage from "pages/profile";
 import Authenticate from "components/Auth";
 
 import { AppContext } from "contexts/app";
@@ -34,35 +33,51 @@ function App() {
   }, []);
 
   useEffect(() => {
-    onMessageListener()
-      .then((payload) => {
-        const {
-          notification: { title, body },
-        } = payload;
-        alert(`${title}\n${body}`);
-      })
-      .catch((err) => console.err(err));
-  });
+    onMessageListener().then(payload => {
+      const { notification: { title, body }} = payload;
+      alert(`${title}\n${body}`);
+    }).catch(err => console.err(err));
+  })
 
   return (
     <div className="App">
       <AppContext.Provider value={{ session, setSession }}>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/events" render={(routeProps) => <EventsPage {...routeProps} />} />
             <Route
               exact
-              path="/schedule"
+              path="/events"
               render={(routeProps) => (
                 <Authenticate>
-                  <EventSchedulePage {...routeProps} />
+                  <EventsPage {...routeProps} />
                 </Authenticate>
               )}
             />
-            <Route exact path="/live" render={(routeProps) => <EventLivePage {...routeProps} />} />
-            <Route exact path="/team" component={TeamPage} />
-            <Route exact path="/pass" render={(routeProps) => <EventPassPage {...routeProps} />} />
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/login" render={(routeProps) => <LoginPage {...routeProps} />} />
+            <Route
+              exact
+              path="/team"
+              render={(routeProps) => (
+                <Authenticate>
+                  <TeamPage {...routeProps} />
+                </Authenticate>
+              )}
+            />
+            <Route
+            	exact 
+            	path="/profile" 
+            	render={(routeProps) => (
+            		<Authenticate>
+            			<ProfilePage {...routeProps} />
+            		</Authenticate>
+            	)} 
+            />
+            <Route
+              exact
+              path="/"
+              render={(routeProps) => 
+                  <HomePage {...routeProps} /> }
+            />
             <Redirect from="*" to="/" />
           </Switch>
         </BrowserRouter>
