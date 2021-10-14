@@ -1,9 +1,15 @@
+@font-face {
+	font-family: UnifrakturMaguntia;
+	src: url(UnifrakturMaguntia-Regular.ttf);
+}
+
 .navbar-nav {
   position: fixed;
   right: 0;
 }
 
 .navbar .navbar-brand {
+	font-family: UnifrakturMaguntia;
   font-size: 2.5rem;
   color: white;
 }

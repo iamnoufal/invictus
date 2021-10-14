@@ -8,6 +8,7 @@ import EventsPage from "pages/events";
 import TeamPage from "pages/team";
 import EventPassPage from "pages/pass";
 import EventLivePage from "pages/live";
+import ArchivePage from "pages/archives";
 import Authenticate from "components/Auth";
 
 import { AppContext } from "contexts/app";
@@ -63,6 +64,15 @@ function App() {
             <Route exact path="/team" component={TeamPage} />
             <Route exact path="/pass" render={(routeProps) => <EventPassPage {...routeProps} />} />
             <Route exact path="/" component={HomePage} />
+            <Route 
+            	exact 
+            	path="/archives" 
+            	render={(routeProps)=>(
+            		<Authenticate>
+            			<ArchivePage {...routeProps} />
+            		</Authenticate> 
+            	)}
+            />
             <Redirect from="*" to="/" />
           </Switch>
         </BrowserRouter>

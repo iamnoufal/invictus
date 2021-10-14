@@ -1,15 +1,18 @@
 import Layout from "components/Layout";
 
+import deskbg from "assets/images/main-desk.webp";
+import mobbg from "assets/images/main-mob.webp";
+
 const HomePage = () => {
   return (
     <Layout>
       <img
-        src="https://rahman24.github.io/invictus/backup/main-desk.png"
+        src={deskbg}
         className="bg-img d-none d-md-block d-lg-block"
         alt="home page"
       />
       <img
-        src="https://rahman24.github.io/invictus/backup/main-mob.png"
+        src={mobbg}
         className="bg-img d-block d-md-none d-lg-none"
         alt="home page"
       />

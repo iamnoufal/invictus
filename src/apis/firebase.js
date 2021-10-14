@@ -15,7 +15,7 @@ export const getEvents = () => {
   return getDocs(collection(db, "events")).then((querySnapshot) => {
     let events = [];
     querySnapshot.forEach((doc) => {
-      const { category, start, end, desc, img, gform, type, rules, completed } = doc.data();
+      const { category, start, end, desc, img, gform, type, rules, completed, yt } = doc.data();
       events.push({
         name: doc.id,
         category,
@@ -27,9 +27,10 @@ export const getEvents = () => {
         type,
         rules,
         completed,
+        yt,
       });
     });
-    return events;
+    return [...events].sort((a, b) => a?.start?.seconds - b?.start?.seconds);
   });
 };
 

@@ -1,11 +1,10 @@
-import wnkLogo from "assets/images/wnk-logo.png";
+import wnkLogo from "assets/images/wnk-logo.webp";
 
 import "./Footer.css";
-import instaIcon from "assets/images/icon_insta.png";
-import youtubeIcon from "assets/images/icon_youtube.png";
+import instaIcon from "assets/images/icon_insta.webp";
+import youtubeIcon from "assets/images/icon_youtube.webp";
 
 const Footer = () => {
-  const contact_url = "mailto:21f1005287@student.onlinedegree.iitm.ac.in";
   return (
     <footer className="footer ">
       <hr className="line" />
