@@ -1,5 +1,5 @@
-# invictus
-Invictus fest for IITM BSc
+# Invictus 2021
+Invictus Fest was conducted for the students of IITM BSc by Kaziranga, Namdapha and Wayanad houses from 28 August, 2021 to September 05, 2021
 
 
 ## Steps to run the project on local system
