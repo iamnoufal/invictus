@@ -5,7 +5,7 @@ Invictus Fest was conducted for the students of IITM BSc by Kaziranga, Namdapha 
 ## Steps to run the project on local system
 
 - Select a directory where you want to clone this project
-- Run command `git clone git@github.com:Rahman24/invictus.git` - This will install all the files within `invictus-react` folder
+- Run command `git clone git@github.com:Rahman24/invictus.git` - This will install all the files within `invictus` folder
 - Go to the project folder using `cd invictus-react`
 - Install project dependencies using `npm install`
 - Make sure you have the `.env.development` file with all secret values present
