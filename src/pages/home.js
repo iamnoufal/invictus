@@ -1,7 +1,5 @@
 import Layout from "components/Layout";
 
-import deskbg from "assets/images/main-desk.webp";
-import mobbg from "assets/images/main-mob.webp";
 import wnkLogo from "assets/images/wnk-logo.webp";
 import stratlytics from "assets/images/stratlytics.png";
 import ytIcon from "assets/images/yt.png";
