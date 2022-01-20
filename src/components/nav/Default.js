@@ -18,6 +18,10 @@ const LINKS = [
     label: "Event Pass",
   },
   {
+    to: "/archives",
+    label: "Archives",
+  },
+  {
     to: "/team",
     label: "Our Team",
   },
@@ -27,7 +31,7 @@ const NavigationDefault = () => {
   return (
     <nav className="navbar navbar-dark bg-color-darkgreen fixed-top navbar-expand-lg px-4 shadow">
       <div className="container-fluid">
-        <span className="navbar-brand" style={{ fontFamily: "UnifrakturMaguntia" }}>
+        <span className="navbar-brand">
           Invictus
         </span>
         <button
@@ -56,9 +60,6 @@ const NavigationDefault = () => {
                 </NavLink>
               </li>
             ))}
-            <li className="nav-item mx-3">
-              <EventLiveTag />
-            </li>
           </ul>
         </div>
       </div>

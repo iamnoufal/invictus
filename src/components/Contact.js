@@ -7,7 +7,7 @@ import "./Contact.css";
 
 const Contact = ({ github, instagram, linkedin, whatsapp, mail }) => {
   return (
-    <div className="d-flex m-auto text-center contact-list mt-5">
+    <div className="d-flex m-auto text-center contact-list mt-1">
       {github && (
         <a href={github} target="_blank" rel="noopener noreferrer">
           <img className="social-icon" src={iconGithub} alt="github icon" />
